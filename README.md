@@ -4,6 +4,31 @@ Coffee App Splash Screen made with SwiftUI.
 
 ## SplashScreen - Code 
 ```
+struct ContentView: View {
+    @State var splashScreen  = true
+
+    var body: some View {
+         ZStack{
+            Group{
+              if splashScreen {
+                  SplashScreen()
+               }
+              else{
+                  MainView()
+                    }
+                }
+               .onAppear {
+                  DispatchQueue
+                       .main
+                       .asyncAfter(deadline:
+                        .now() + 3) {
+                   self.splashScreen = false
+                  }
+                }
+            }
+        }
+    }
+
 ```
 
 
